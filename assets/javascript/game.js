@@ -1,50 +1,48 @@
 
-$(document).ready(function() {
-
-var wins = 0;
-var guessesLeft = 10;
-var wordBank = ["test", "testing", "testified", "testimonious"];
-var blankedWord = [];
-var guessedLetters = [];
-var guess;
-//Picks a random word from the word bank and sets it as the variable computerGuess
-var computerGuess = wordBank[Math.floor(Math.random() * wordBank.length)];
-console.log(computerGuess);
-
-
-//turning the computer's guessed word into blanks by pushing "_"s to an emptry array
-for (var i=0; i<computerGuess.length; i++) {
-    blankedWord.push("_");
-}
-console.log(blankedWord);
-document.getElementById("blanked-word").innerHTML = blankedWord;
-
-document.onkeyup = function(event) {
-    var guess = event.key;
-    guess = guess.toLowerCase();
-    guessedLetters.push(guess);
-    console.log(guess);
-    console.log(guessedLetters);
-    
-
-    // pretty sure i'm going to want to use a forEach function here
-    // guessedLetters.forEach(function(drink) {
-    //     return drink;
-    // })
-    // function printArray(wantPrinted) {
-    //     for (var i = 0; i < wantPrinted.length; i++) {
-    //         var print = wantPrinted[i] + " ";
-    //         return print;
-    //     }
-    // }
-
-    document.getElementById("guessedLetters").innerHTML += guess + " ";
-
-    if (computerGuess.indexOf(guess) >= 0) {
-        console.log("got a letter");
+    var wins = 0;
+    var losses = 0;
+    var guessesLeft = 10;
+    var wordBank = ["test", "testing", "testified", "testimonious"];
+    var blankedWord = [];
+    var guessedLetters = [];
+    var guess;
+    //*for before the game starts* printing the counter vars to their respective <p>
+    document.getElementById("wins-p").innerText = wins;
+    document.getElementById("losses").innerText = losses;
+    document.getElementById("guessesrem").innerText = " " + guessesLeft;
+    //Picks a random word from the word bank and sets it as the variable computerGuess
+    var computerGuess = wordBank[Math.floor(Math.random() * wordBank.length)];
+    var computerGuessLength = computerGuess.length;
+    console.log(computerGuess);
+    // turning the computer's guessed word into blanks by pushing "_"s to an emptry array
+    for (var i = 0; i < computerGuess.length; i++) {
+        blankedWord.push("_");
     }
 
-   
+
     
-}
-});
+    document.onkeyup = function (event) {
+        var guess = event.key;
+        guess = guess.toLowerCase();
+        guessedLetters.push(guess);
+        console.log(guess);
+        console.log(guessedLetters);
+        console.log(wins);
+        //re-printing every counter with every keystroke
+        document.getElementById("guessedLetters").innerHTML += guess + " ";
+        document.getElementById("wins-p").innerText = wins;
+        document.getElementById("losses").innerText = losses;
+        document.getElementById("guessesrem").innerText = " " + guessesLeft;
+
+   
+    document.getElementById("blanked-word").innerHTML = blankedWord.join(' ');
+
+
+        if (computerGuess.indexOf(guess) !== -1) {
+            var replace = computerGuess.indexOf(guess);
+            blankedWord[replace] = guess;
+        }
+
+
+
+    };
