@@ -1,0 +1,30 @@
+* {
+    box-sizing: content-box;
+  }
+
+.left-column {
+  height: 100px;
+}
+
+.jumbotron {
+  margin: 0;
+  background-image: url("../images/ep_naturalblack.png");
+  color: red;
+  font-family: Pacifico;
+
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+  background-image: url("../images/ep_naturalblack.png");
+  margin: 0;
+  padding: 0;
+}
+
+.left-column,
+.game-text {
+  color: white;
+  font-family: Lobster;
+  font-size: 20pt;
+}
