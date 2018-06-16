@@ -18,10 +18,11 @@
     for (var i = 0; i < computerGuess.length; i++) {
         blankedWord.push("_");
     }
+    document.getElementById("blanked-word").innerHTML = blankedWord.join(' ');
 
 
     
-    document.onkeyup = function (event) {
+    document.onkeydown = function (event) {
         var guess = event.key;
         guess = guess.toLowerCase();
         guessedLetters.push(guess);
@@ -35,14 +36,37 @@
         document.getElementById("guessesrem").innerText = " " + guessesLeft;
 
    
-    document.getElementById("blanked-word").innerHTML = blankedWord.join(' ');
-
-
-        if (computerGuess.indexOf(guess) !== -1) {
+        document.getElementById("blanked-word").innerHTML = blankedWord.join(' ');
+        function replaceFxn(guess) {
             var replace = computerGuess.indexOf(guess);
             blankedWord[replace] = guess;
+            document.getElementById("blanked-word").innerHTML = blankedWord.join(' ');
         }
+
+        // if (computerGuess.indexOf(guess) !== -1) {
+        //     var splitUp = computerGuess.split(" ");
+        //     console.log(computerGuess);
+        //     // computerGuess.forEach(replaceFxn);
+        // }
+       
+        if (computerGuess.indexOf(guess) !== -1) {
+            var computerGuessArray = computerGuess.split();
+            computerGuessArray.forEach(function() {
+                    var replace = computerGuess.indexOf(guess);
+                    blankedWord[replace] = guess;
+                    document.getElementById("blanked-word").innerHTML = blankedWord.join(' ');
+                    });
+        }
+       
+
 
 
 
     };
+
+
+
+    // var replace = computerGuess.indexOf(guess);
+    // blankedWord[replace] = guess;
+    // document.getElementById("blanked-word").innerHTML = blankedWord.join(' ');
+    
