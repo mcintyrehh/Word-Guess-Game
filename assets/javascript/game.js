@@ -25,58 +25,36 @@ document.getElementById("blanked-word").innerHTML = blankedWord.join(' ');
 document.onkeydown = function (event) {
     var guess = event.key;
     guess = guess.toLowerCase();
-    guessedLetters.push(guess);
+    // guessedLetters.push(guess);
     console.log(guess);
     console.log(guessedLetters);
     console.log(wins);
     //re-printing every counter with every keystroke
-    document.getElementById("guessedLetters").innerHTML += guess + " ";
     document.getElementById("wins-p").innerText = wins;
     document.getElementById("losses").innerText = losses;
-    document.getElementById("guessesrem").innerText = " " + guessesLeft;
-    
+        
     console.log(computerGuess.indexOf(guess) + "does it show 2?")
-    // document.getElementById("blanked-word").innerHTML = blankedWord.join(' ');
-    // function replaceFxn(guess) {
-    //     var replace = computerGuess.indexOf(guess);
-    //     blankedWord[replace] = guess;
-    //     document.getElementById("blanked-word").innerHTML = blankedWord.join(' ');
-    // }
-
-    // if (computerGuess.indexOf(guess) !== -1) {
-    //     var splitUp = computerGuess.split(" ");
-    //     console.log(computerGuess);
-    //     // computerGuess.forEach(replaceFxn);
-    // }
-
+    // If the guessed letter is an index of the answer, a for loop looks
+    // at each letter in the answer and replaces it if the guess is identical
     if (computerGuess.indexOf(guess) !== -1) {
         var computerGuessArray = computerGuess.split('');
         console.log(computerGuessArray);
-        computerGuessArray.forEach(function (letter) {
-            if (letter === guess) {
-                var replace = computerGuess.indexOf(letter);
-                blankedWord[replace] = letter;
+        for (var i = 0; i < computerGuessArray.length; i++) {
+            if (computerGuessArray[i] === guess) {
+                blankedWord[i] = guess;
                 document.getElementById("blanked-word").innerHTML = blankedWord.join(' ');
             }
-        });
+        };
     }
-
-
-
-    //    if (computerGuess.indexOf(guess) !== -1) {
-    //     var computerGuessArray = computerGuess.split('');
-    //     console.log(computerGuessArray);
-    //     computerGuessArray.forEach(function(letter) {
-    //             var replace = computerGuessArray.indexOf(guess);
-    //             blankedWord[replace] = letter;
-    //             document.getElementById("blanked-word").innerHTML = blankedWord.join(' ');
-    //             });
-    // }
-
+    // If the guess isn't in the word it subtracts a guess, 
+    else if (computerGuess.indexOf(guess) === -1) {
+        guessesLeft--
+        document.getElementById("guessesrem").innerText = " " + guessesLeft;
+        if (guessedLetters.indexOf(guess) === -1) {
+            guessedLetters.push(guess);
+            document.getElementById("guessedLetters").innerHTML += guess + " ";
+        }  
+    }
 };
 
 
-
-    // var replace = computerGuess.indexOf(guess);
-    // blankedWord[replace] = guess;
-    // document.getElementById("blanked-word").innerHTML = blankedWord.join(' ');
