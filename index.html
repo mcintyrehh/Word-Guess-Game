@@ -17,32 +17,34 @@
 </head>
 
 <body>
-    <div class="container col-md-12 m-0 p-0">
-        <div class="row">
-            <div class="jumbotron mx-auto text-center">
-                <h1 class="head-txt">Hangman!</h1>
-            </div>
-        </div>
-        <div class="col-md-6 mx-auto text-center">
+    <div class="container col-md-12 mx-auto p-0">
+        <div class="col-md-12 mx-auto">
             <div class="row">
-                <div class="col-md-6 m-0 p-0 left-column">
-                    <img class="hangman" src="assets/images/hangmancrop.jpg" alt="Hangman pic">
+                <div class="mx-auto text-center header">
+                    <h1 class="head-txt">Hangman!</h1>
                 </div>
-                <div class="col-md-6 m-0 p-0 game-text">
-                    <p>Press any key to get started!</p>
-                        <div class="d-flex justify-content-center">    
-                            <div id="winsDiv">Wins: <p id="wins-p"></p></div>
-                            <div class="col-md-1"></div>
-                            <div id="lossDiv">Losses: <p id="losses"></p></div>
-                        </div>
-                    <p>Current Word: </p>
-                    <p id="blanked-word"></p>
-                    <div class="d-flex justify-content-center mx-1">Number of guesses remaining:  </div><div id="guessesrem"></div>
-                    <div>Lettters already guessed:
-                        <div id=guessedLetters></div>
+            </div>
+            <div class="col-md-6 mx-auto text-center">
+                <div class="row">
+                    <div class="col-md-6 col-sm-3 col-xs-3 m-0 p-0 left-column justify-content-center">
+                        <img class="hangman" src="assets/images/hangmancrop.jpg" alt="Hangman pic">
                     </div>
-                    <div class="row justify-content-center" id="reset">
-                        
+                    <div class="col-md-6 m-0 p-0 game-text">
+                        <p>Press any key to get started!</p>
+                            <div class="d-flex justify-content-center">    
+                                <div id="winsDiv">Wins: <p id="wins-p"></p></div>
+                                <div class="col-md-1"></div>
+                                <div id="lossDiv">Losses: <p id="losses"></p></div>
+                            </div>
+                        <p>Current Word: </p>
+                        <p id="blanked-word"></p>
+                        <div class="d-flex justify-content-center mx-1">Number of guesses remaining:  </div><div id="guessesrem"></div>
+                        <div>Lettters already guessed:
+                            <div id=guessedLetters></div>
+                        </div>
+                        <div class="row justify-content-center" id="reset">
+                            
+                        </div>
                     </div>
                 </div>
             </div>

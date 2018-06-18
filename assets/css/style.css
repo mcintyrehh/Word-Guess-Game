@@ -2,19 +2,12 @@
     box-sizing: content-box;
   }
 
-.left-column {
-  height: 100px;
-}
-
-.jumbotron {
-  margin: 0;
+.head-txt {
+  margin-bottom: 30px;
   background-image: url("../images/ep_naturalblack.png");
   color: red;
   font-family: Pacifico;
-}
-
-.head-txt {
-  font: 40pt;
+  font-size: 60pt;
 }
 
 .container {
@@ -33,7 +26,7 @@
 }
 
 .hangman {
-  width: 50%;
+  width: 100%;
 }
 
 #reset {
