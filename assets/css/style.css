@@ -30,4 +30,12 @@
   color: white;
   font-family: Lobster;
   font-size: 20pt;
-/* } */
+}
+
+.hangman {
+  width: 50%;
+}
+
+#reset {
+  font-size: 20pt;
+}
