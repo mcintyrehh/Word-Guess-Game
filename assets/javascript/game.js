@@ -65,7 +65,7 @@ document.onkeydown = function (event) {
         // If the guess hasn't already been guessed it gets added to the "letters already guessed section"
         if (guessedLetters.indexOf(guess) === -1) {
             guessedLetters.push(guess);
-            document.getElementById("guessedLetters").innerText += guess + " ";
+            document.getElementById("guessedLetters").innerText = guessedLetters.join(' ')
         }
     }
     if (guessesLeft === 0) {
