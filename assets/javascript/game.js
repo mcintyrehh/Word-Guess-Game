@@ -38,10 +38,10 @@ document.onkeydown = function (event) {
     guess = guess.toLowerCase();
     // audio if they guess a letter correctly
     var owenWow = document.createElement("audio");
-    owenWow.setAttribute("src", "Assets/Audio/wowc.mp3");
+    owenWow.setAttribute("src", "https://raw.githubusercontent.com/mcintyrehh/Word-Guess-Game/master/assets/audio/wowc.mp3");
     // for audio if they lose
     var lossAudio = document.createElement("audio");
-    lossAudio.setAttribute("src", "Assets/Audio/HowardDean.mp3");
+    lossAudio.setAttribute("src", "https://raw.githubusercontent.com/mcintyrehh/Word-Guess-Game/master/assets/audio/HowardDean.mp3");
     // setting up the wins/losses <div> as a var to run the rotate jQuery plugin on
     var lossDiv = $("#lossDiv");
     var winsDiv = $("#winsDiv");
@@ -69,7 +69,7 @@ document.onkeydown = function (event) {
         }
     }
     if (guessesLeft === 0) {
-        guessesLeft++;
+        guessesLeft--;
         lossAudio.play();
         losses++;
         document.getElementById("losses").innerText = losses;
@@ -105,6 +105,7 @@ $("#reset").on("click", function () {
     }
     document.getElementById("blanked-word").innerText = blankedWord.join(' ');
     document.getElementById("reset").innerHTML = "";
+    document.getElementById("guessedLetters").innerText = " ";
 });
 
 
