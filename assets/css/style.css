@@ -18,6 +18,7 @@
   padding: 0;
 }
 
+.btn-text,
 .left-column,
 .game-text {
   color: white;
@@ -31,4 +32,8 @@
 
 #reset {
   font-size: 20pt;
+}
+
+.header-row {
+  margin-bottom: 25px;
 }
